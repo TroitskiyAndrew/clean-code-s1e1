@@ -85,6 +85,9 @@ var editTask = function () {
   var label = listItem.querySelector(".task__label");
   var editBtn = listItem.querySelector(".task__button_edit");
   var containsClass = listItem.classList.contains("task_editMode");
+  // can't save empty task
+  if (editInput.value == "")
+    return
   //If class of the parent is .editmode
   if (containsClass) {
 
@@ -120,6 +123,9 @@ var taskCompleted = function () {
 
   //Append the task list item to the #completed-tasks
   var listItem = this.parentNode;
+  // If item is edinting now, save it
+  if (listItem.matches(".task_editMode"))
+    editTask.call(listItem.querySelector(".task__button_edit"));
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 
