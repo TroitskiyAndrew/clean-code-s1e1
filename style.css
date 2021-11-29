@@ -30,6 +30,7 @@
 .task {
   display: flex;
 }
+.task__label,
 .task__text {
   width: 56%;
   display: inline-block;
