@@ -85,11 +85,12 @@ var editTask = function () {
   var label = listItem.querySelector(".task__label");
   var editBtn = listItem.querySelector(".task__button_edit");
   var containsClass = listItem.classList.contains("task_editMode");
-  // can't save empty task
-  if (editInput.value == "")
-    return
+
   //If class of the parent is .editmode
   if (containsClass) {
+    // can't save empty task
+    if (editInput.value == "")
+      return
 
     //switch to .editmode
     //label becomes the inputs value.
